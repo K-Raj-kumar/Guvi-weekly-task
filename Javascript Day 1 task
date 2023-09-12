@@ -32,3 +32,22 @@ HTTP/2, introduced in 2015, was designed to address these limitations and offer 
 
 In a nutshell, HTTP/2 was designed to make web browsing faster and more efficient. It does this by allowing multiple resources to load simultaneously, compressing headers, prioritizing critical resources, and even predicting what your browser needs. While HTTP/1.1 served us well for years, HTTP/2 offers a better web experience, especially on today's complex and resource-rich websites.
 
+
+Objects and its internal representation
+
+Objects: The Building Blocks of JavaScript
+
+Imagine JavaScript as a toolbox, and objects are the versatile containers that hold various tools (data and functions) you need to build your web applications. Objects are at the heart of JavaScript, and they come in many forms.
+
+1.Literal Objects: These are the most common and straightforward objects. You can create them using curly braces {}.
+2.Built-in Objects: JavaScript provides a set of built-in objects like Array, Date, and Math. You can access their properties and methods to perform specific tasks.
+
+The Anatomy of Objects
+
+Internally, objects in JavaScript are like containers with slots or compartments to store data and functions. These compartments are called "properties" and "methods."
+
+1.Properties: These are like labeled slots where you can store data. In the example above, name and age in the person object are properties.
+
+2.Methods: These are functions stored within an object. The greet function in the person object is a method.
+
+JavaScript engines, like V8 (used in Google Chrome), handle objects efficiently. Objects are represented as collections of key-value pairs (properties and methods) within a memory structure. Each object has a unique identifier called a "reference" that allows the engine to access it.
