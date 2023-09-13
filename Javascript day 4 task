@@ -1,0 +1,86 @@
+1. How to compare two JSON have the same properties without order?
+a. let obj1 = { name: "Person 1", age: 5 };
+b. let obj2 = { age: 5, name: "Person 1" };
+
+
+```javascript
+
+let obj1 = { name: "Person 1", age: 5 };
+let obj2 = { age: 5, name: "Person 1" };
+
+// Convert the objects to JSON strings
+const json1 = JSON.stringify(obj1);
+const json2 = JSON.stringify(obj2);
+
+// Compare the JSON strings
+if (json1 === json2) {
+  console.log("The JSON objects are equal.");
+} else {
+  console.log("The JSON objects are not equal.");
+}
+```
+Finally, we compare the JSON strings using `===` to determine if the objects have the same properties regardless of their order.
+
+
+
+1.Use the rest countries' API URL -> https /irestcountries com/v3 1/all and display all the country
+flags in the console
+
+const apiUrl = "https://restcountries.com/v3.1/all";
+
+fetch(apiUrl)
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then((data) => {
+       data.forEach((country) => {
+      const flag = country.flags.png;
+      const name = country.name.common;
+      console.log(`${name}: ${flag}`);
+    });
+  })
+  .catch((error) => {
+    console.error("Fetch error:", error);
+  });
+
+ extract the country flag (using country.flags.png) 
+ extract the country name (using country.name.common).
+
+
+2.Use the same rest countries and print all countries names, regions, sub-region and populations
+
+const apiUrl = "https://restcountries.com/v3.1/all";
+
+fetch(apiUrl)
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then((data) => {
+        data.forEach((country) => {
+      const name = country.name.common;
+      const region = country.region;
+      const subRegion = country.subregion;
+      const population = country.population;
+
+      console.log(`Country: ${name}`);
+      console.log(`Region: ${region}`);
+      console.log(`Sub-Region: ${subRegion}`);
+      console.log(`Population: ${population}`);
+      console.log("------------");
+    });
+  })
+  .catch((error) => {
+    console.error("Fetch error:", error);
+  });
+
+
+ extract the country name (using country.name.common),
+ extract the region (using country.region), 
+ extract the sub-region (using country.subregion),
+ extract the population (using country.population) for each country.
