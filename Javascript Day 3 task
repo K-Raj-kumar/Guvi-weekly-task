@@ -1,0 +1,95 @@
+Resume data in JSON format:
+
+```json
+{
+  "name": "Raj kumar",
+  "contact": {
+    "email": "rajkumar4129960@gmail.com",
+    "phone": "9176176189",
+    "address": "-"
+  },
+  "summary": "Experienced web developer with a passion for creating responsive and user-friendly websites. Proficient in HTML, CSS, and JavaScript. Strong problem-solving skills and a commitment to delivering high-quality results.",
+  "education": [
+    {
+      "degree": "Bachelor of Science in Computer Science",
+      "school": "University of madras",
+      "graduationYear": 2019
+    }
+  ],
+  "experience": [
+    {
+      "title": "Front-End Developer",
+      "company": "Tech Solutions Inc.",
+      "startDate": "January 2020",
+      "endDate": "Present",
+      "responsibilities": [
+        "Develop and maintain client websites using HTML, CSS, and JavaScript.",
+        "Collaborate with designers to implement responsive web designs.",
+        "Optimize website performance for speed and user experience."
+      ]
+    },
+    ],
+  "skills": [
+    "HTML5",
+    "CSS3",
+    "JavaScript",
+    "Responsive Web Design",
+    "Web Accessibility",
+    "Version Control (Git)",
+    "Problem Solving",
+    "Team Collaboration"
+  ]
+}
+```
+
+
+
+ iterate over this JSON data using different loops:
+
+### Using a `for...in` loop (for objects):
+
+```javascript
+const resumeData = {
+  // ... JSON data here ...
+};
+
+for (const key in resumeData) {
+  if (typeof resumeData[key] === 'object') {
+    console.log(`${key}:`);
+    for (const subKey in resumeData[key]) {
+      console.log(`  ${subKey}: ${resumeData[key][subKey]}`);
+    }
+  } else {
+    console.log(`${key}: ${resumeData[key]}`);
+  }
+}
+```
+
+### Using a `for...of` loop (for arrays within the JSON):
+
+```javascript
+for (const experience of resumeData.experience) {
+  console.log("Experience:");
+  for (const key in experience) {
+    if (Array.isArray(experience[key])) {
+      console.log(`  ${key}:`);
+      experience[key].forEach(item => {
+        console.log(`    - ${item}`);
+      });
+    } else {
+      console.log(`  ${key}: ${experience[key]}`);
+    }
+  }
+}
+```
+
+### Using the `forEach` method (for skills array within the JSON):
+
+```javascript
+console.log("Skills:");
+resumeData.skills.forEach(skill => {
+  console.log(`- ${skill}`);
+});
+```
+
+ the structure of the JSON data requires nested loops to iterate over objects and arrays within the main JSON object. The `for...in` loop is used to iterate over object properties, the `for...of` loop is used to iterate over arrays, and the `forEach` method is used to iterate over the "skills" array.
